@@ -1,0 +1,10 @@
+(executable
+  (name pp)
+  (modules pp)
+  (libraries ppxlib ppx_update))
+
+(test
+ (name test)
+ (modules test)
+ (libraries ppx_deriving)
+ (preprocess (pps ppx_update ppx_deriving.show)))
