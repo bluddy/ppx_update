@@ -40,9 +40,24 @@ let record_extension name =
         rec_expr
         (Some (create_record ~loc elist rec_expr)))
 
+let setfield_extension name =
+  Extension.declare name
+  Extension.Context.expression
+    Ast_pattern.(
+    single_expr_payload @@
+      pexp_setfield __ __ __
+    )
+    (fun ~loc ~path:_ lexpr lident rexpr ->
+      let lident_loc = Astlib.Location.({txt=lident; loc}) in
+      pexp_ifthenelse ~loc
+        (create_test ~loc [(lident_loc, rexpr)] lexpr)
+        (eunit ~loc)
+        (Some (pexp_setfield ~loc lexpr lident_loc rexpr)))
+
 let () = Driver.register_transformation  name
   ~rules:
   [
-    Context_free.Rule.extension (record_extension "update")
+    Context_free.Rule.extension (record_extension "record");
+    Context_free.Rule.extension (setfield_extension "update");
   ]
 
