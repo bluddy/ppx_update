@@ -57,7 +57,7 @@ let setfield_extension name =
 let () = Driver.register_transformation  name
   ~rules:
   [
-    Context_free.Rule.extension (record_extension "record");
-    Context_free.Rule.extension (setfield_extension "update");
+    Context_free.Rule.extension (record_extension "up");
+    Context_free.Rule.extension (setfield_extension "upf");
   ]
 

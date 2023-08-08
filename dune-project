@@ -5,21 +5,21 @@
 (generate_opam_files true)
 
 (source
- (github username/reponame))
+ (github bluddy/ppx_update))
 
-(authors "Author Name")
+(authors "Yotam Barnoy")
 
-(maintainers "Maintainer Name")
+(maintainers "yotambarnoy@gmail.com")
 
-(license LICENSE)
+(license MIT)
 
 (documentation https://url/to/documentation)
 
 (package
  (name ppx_update)
- (synopsis "A short synopsis")
- (description "A longer description")
- (depends ocaml dune)
+ (synopsis "PPX library to optimize record updates")
+ (description "ppx_update optimizes away record updates when new record contents match old ones")
+ (depends ocaml dune ppxlib)
  (tags
   (topics "to describe" your project)))
 

@@ -1,26 +1,47 @@
 
 type a = {
-  x: int;
-} [@@deriving show]
+  _x: int;
+}
 
 type d = {
-  y: int;
-} [@@deriving show]
+  _y: int;
+}
 
 type b = {
   a: a;
   mutable d: d;
-  foo: int;
-} [@@deriving show]
+  _foo: int;
+}
 
 let () =
-  let a = {x=3} in
-  let d = {y=1} in
+  let a = {_x=3} in
+  let d = {_y=1} in
 
-  let b = {a=a; d=d; foo=10} in
-  let b2 = [%record {b with a; d}] in
-  [%update b2.d <- d];
-  print_string @@ show_b b2
+  let b = {a=a; d=d; _foo=10} in
+  let b2 = [%up {b with a; d}] in
+  Printf.printf "Update with the same members: same=%b\n" (b2 == b);
+  let b3 = [%up {b with a={_x=5}}] in
+  Printf.printf "Update with different members: same=%b\n" (b3 == b);
+
+  print_endline "---- Record update ----";
+  let t = Sys.time () in
+  let d2 = d in
+  for _=0 to 100000 do
+    [%upf b2.d <- d];
+    [%upf b2.d <- d2];
+  done;
+  let delta1 = Sys.time () -. t in
+
+  let t = Sys.time () in
+  let d2 = {_y=2} in
+  for _=0 to 100000 do
+    [%upf b2.d <- d2];
+    [%upf b2.d <- d];
+  done;
+  let delta2 = Sys.time () -. t in
+  Printf.printf "Record update different item takes more time:%b\n" (delta2 > delta1);
+  ()
+
   
 
 
