@@ -80,9 +80,9 @@ Simply add to your preprocessing sections in dune
 
 Only two extensions are currently supported:
 
-* `%up` (stands for update): handles record update.
+* `%up` (for `update`): handles record update.
 Will only work if you have a record that is functionally updated using the `with` keyword.
-* `%upf` (stands for update_field): handles mutable field updates.
+* `%upf` (for `update_field`): handles mutable field updates.
 
 Note that `ppx_update` is simple, so if you update with a long expression, that expression will be computed twice.
 For example, this is good:
