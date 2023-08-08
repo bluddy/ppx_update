@@ -8,7 +8,7 @@ let create_test ~loc elist rec_expr =
   let rec loop elist =
     let create_comp ~loc lident comp_exp =
       (eapply ~loc
-        (evar ~loc "==") @@
+        (evar ~loc "Stdlib.==") @@
         [pexp_field ~loc rec_expr lident; comp_exp])
     in
     match elist with
