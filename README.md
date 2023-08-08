@@ -45,7 +45,7 @@ type c = {mutable a:a; ...}
 
 let update c =
   let b' = ... in
-  c <- b'
+  c.b <- b'
 ```
 
 In this case, we want to try and avoid the write barrier in case `b' == b`, which we can check for with
@@ -56,7 +56,7 @@ let update c =
   if c.b == b' then
     ()
   else 
-    c <- b'
+    c.b <- b'
 ```
 
 With `ppx_update`:
@@ -64,7 +64,7 @@ With `ppx_update`:
 ```ocaml
 let update c =
   let b' = ... in
-  [%upf c <- b']  (* "upf=update_field", will only update if there's no physical address match *)
+  [%upf c.b <- b']  (* will only update if there's no physical address match *)
 ```
 
 ## Using with dune
