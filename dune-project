@@ -2,6 +2,8 @@
 
 (name ppx_update)
 
+(version 0.8)
+
 (generate_opam_files true)
 
 (source
@@ -21,6 +23,6 @@
  (description "ppx_update optimizes away record updates when new record contents match old ones")
  (depends ocaml dune ppxlib)
  (tags
-  (topics "to describe" your project)))
+  ("ppx")))
 
 ; See the complete stanza docs at https://dune.readthedocs.io/en/stable/dune-files.html#dune-project
