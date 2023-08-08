@@ -80,9 +80,9 @@ Simply add to your preprocessing sections in dune
 
 Only two extensions are currently supported:
 
-* %up (stands for update): handles record update.
+* `%up` (stands for update): handles record update.
 Will only work if you have a record that is functionally updated using the `with` keyword.
-* %upf (stands for update_field): handles mutable field updates.
+* `%upf` (stands for update_field): handles mutable field updates.
 
 Note that `ppx_update` is simple, so if you update with a long expression, that expression will be computed twice.
 For example, this is good:
@@ -91,7 +91,7 @@ For example, this is good:
 c.foo <- foo';
 ```
 
-and this is not a good idea:
+but this is not a good idea:
 ```ocaml
 c.foo <- long_computation a b c;
 ```
