@@ -12,9 +12,9 @@ homepage: "https://github.com/bluddy/ppx_update"
 doc: "https://url/to/documentation"
 bug-reports: "https://github.com/bluddy/ppx_update/issues"
 depends: [
-  "ocaml"
+  "ocaml>=4.14"
   "dune" {>= "3.9"}
-  "ppxlib"
+  "ppxlib>=0.30.0"
   "odoc" {with-doc}
 ]
 build: [

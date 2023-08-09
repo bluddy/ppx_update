@@ -21,7 +21,7 @@
  (name ppx_update)
  (synopsis "PPX library to optimize record updates")
  (description "ppx_update optimizes away record updates when new record contents match old ones")
- (depends ocaml dune ppxlib)
+ (depends ocaml>=4.14 dune ppxlib>=0.30.0)
  (tags
   ("ppx")))
 
