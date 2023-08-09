@@ -78,7 +78,7 @@ Simply add to your preprocessing sections in dune
 
 ## Commands
 
-Only two extensions are currently supported:
+Two extensions are currently supported:
 
 * `%up` (for `update`): handles record update.
 Will only work if you have a record that is functionally updated using the `with` keyword.
