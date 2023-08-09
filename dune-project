@@ -15,8 +15,6 @@
 
 (license MIT)
 
-(documentation https://url/to/documentation)
-
 (package
  (name ppx_update)
  (synopsis "PPX library to optimize record updates")
