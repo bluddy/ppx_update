@@ -2,7 +2,7 @@
 
 (name ppx_update)
 
-(version 0.8)
+(version 0.81)
 
 (generate_opam_files true)
 

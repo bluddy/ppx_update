@@ -6,5 +6,5 @@
 (test
  (name test)
  (modules test)
- (libraries ppx_deriving)
- (preprocess (pps ppx_update ppx_deriving.show)))
+ (libraries ppx_update)
+ (preprocess (pps ppx_update)))
